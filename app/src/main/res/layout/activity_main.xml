@@ -13,7 +13,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="172dp"
         android:layout_marginEnd="16dp"
+        android:clickable="false"
         android:ems="10"
+        android:hint="0"
         android:inputType="numberDecimal"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -183,7 +185,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="," />
+            android:onClick="numberButtonPress"
+            android:text="." />
 
         <Button
             android:id="@+id/buttonPlus"
@@ -200,7 +203,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:onClick="znakButtonPress"
+            android:clickable="false"
+            android:onClick="ravnoButtonPress"
             android:text="=" />
     </LinearLayout>
 
@@ -211,6 +215,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
+        android:clickable="false"
         android:textColor="#AAAAAA"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/mainText"
@@ -223,9 +228,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:onClick="resetButtonPress"
         android:text="C"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="znakButtonPress" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
