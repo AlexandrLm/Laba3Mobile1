@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
     lateinit var butsNumber : Array<Button>
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainT : EditText
     var text : String = ""
     var helpText : String = ""
+    lateinit var znak : String
 
     var number1 : Double = 0.0
     var number2 : Double = 0.0
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         for (n in butsZnak){
             if (n.id == v.id) {
                 mainT.setText(n.text)
+                znak = n.text.toString()
             }
             n.isClickable = false
         }
@@ -78,9 +81,26 @@ class MainActivity : AppCompatActivity() {
         resultText.text = helpText
         text = ""
         helpText += " = "
-        helpText += number1 + number2
-        resultText.text = helpText
-        mainT.setText((number1+number2).toString())
+        if (znak == "+") {
+            helpText += number1 + number2
+            resultText.text = helpText
+            mainT.setText((number1 + number2).toString())
+        }
+        else if (znak == "-"){
+            helpText += number1 - number2
+            resultText.text = helpText
+            mainT.setText((number1 - number2).toString())
+        }
+        else if (znak == "*"){
+            helpText += number1 * number2
+            resultText.text = helpText
+            mainT.setText((number1 * number2).toString())
+        }
+        else if (znak == "/"){
+            helpText += number1 / number2
+            resultText.text = helpText
+            mainT.setText((number1 / number2).toString())
+        }
     }
     fun resetButtonPress(v : View){
         for (n in butsNumber){
